@@ -22,7 +22,7 @@ public class Sec_01_SearchCharacter {
             if(originChar == character){
                 count++;
             }
-        };
+        }
         return count;
     }
 }
