@@ -24,6 +24,14 @@ public class Main {
             } else {
                 sb.append(Character.toUpperCase(c));
             }
+
+            //알파베 소문자 범위 (97~122) 를 이용하여 변환
+//            if(c >= 97 && c <= 122){
+//                sb.append((char)(c-32));
+//            } else {
+//                sb.append((char)(c+32));
+//            }
+
         }
         return sb.toString();
     }
