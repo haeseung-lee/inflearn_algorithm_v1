@@ -8,7 +8,7 @@ public class Main {
         String str = in.nextLine();
 
         Main m = new Main();
-        System.out.println(m.solution2(str));
+        System.out.println(m.solution3(str));
 
         in.close();
     }
@@ -37,6 +37,30 @@ public class Main {
                 m = len;
                 answer = s;
             }
+        }
+        return answer;
+    }
+
+    //indexOf 와 subString 활용
+    String solution3(String str){
+        String answer = "";
+        int m = Integer.MIN_VALUE;
+        int idx;
+
+        while((idx=str.indexOf(" ")) != -1){
+            String temp = str.substring(0, idx);
+            int len = temp.length();
+
+            if(m < len){
+                m = len;
+                answer = temp;
+            }
+
+            str = str.substring(idx+1);
+        }
+
+        if(m < str.length()){
+            answer = str;
         }
         return answer;
     }
