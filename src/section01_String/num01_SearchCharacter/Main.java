@@ -1,8 +1,8 @@
-package section01_String;
+package section01_String.num01_SearchCharacter;
 
 import java.util.Scanner;
 
-public class Sec_01_SearchCharacter {
+public class Main {
     public static void main(String[] args) {
         Scanner in =new Scanner(System.in);
 
