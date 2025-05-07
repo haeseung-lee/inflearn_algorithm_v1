@@ -3,6 +3,7 @@ package section01_String.num03_FindTheLongestWord;
 import java.util.Scanner;
 
 public class Main {
+    //문장속 가장 긴 단어 찾기
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
         String str = in.nextLine();

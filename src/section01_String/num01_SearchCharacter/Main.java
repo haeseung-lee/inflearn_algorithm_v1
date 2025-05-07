@@ -3,6 +3,7 @@ package section01_String.num01_SearchCharacter;
 import java.util.Scanner;
 
 public class Main {
+    //문자열에 있는 특정문자 찾기
     public static void main(String[] args) {
         Scanner in =new Scanner(System.in);
 
