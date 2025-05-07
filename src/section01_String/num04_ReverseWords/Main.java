@@ -14,7 +14,7 @@ public class Main {
         }
 
         Main m = new Main();
-        m.solution(strArr);
+        m.solution2(strArr);
         in.close();
     }
 
@@ -27,4 +27,23 @@ public class Main {
             sb.setLength(0);
         }
     }
+
+    private void solution2(String[] strArr){
+
+        for(String s : strArr){
+            char[] c = s.toCharArray();
+            int lt = 0;
+            int rt = c.length -1;
+
+            while(lt < rt){
+                char tmp = c[lt];
+                c[lt] = c[rt];
+                c[rt] = tmp;
+                lt++;
+                rt--;
+            }
+            System.out.println(String.valueOf(c));
+        }
+    }
+
 }
