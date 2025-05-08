@@ -21,33 +21,33 @@ public class Main {
 
         char[] charArr = str.toCharArray();
 
-        int lc = 0;
-        int rc = charArr.length-1;
+        int lt = 0;
+        int rt = charArr.length-1;
 
         boolean isLeftAlphabet = false;
         boolean isRightAlphabet = false;
 
-        while(lc < rc){
-            if((charArr[lc] >= 65 && charArr[lc] <= 90) || (charArr[lc] >= 97 && charArr[lc] <= 122)){
+        while(lt < rt){
+            if((charArr[lt] >= 65 && charArr[lt] <= 90) || (charArr[lt] >= 97 && charArr[lt] <= 122)){
                 isLeftAlphabet = true;
             }
-            if((charArr[rc] >= 65 && charArr[rc] <= 90) || (charArr[rc] >= 97 && charArr[rc] <= 122)){
+            if((charArr[rt] >= 65 && charArr[rt] <= 90) || (charArr[rt] >= 97 && charArr[rt] <= 122)){
                 isRightAlphabet = true;
             }
 
             if(isLeftAlphabet && isRightAlphabet){
-                char temp = charArr[lc];
-                charArr[lc] = charArr[rc];
-                charArr[rc] = temp;
+                char temp = charArr[lt];
+                charArr[lt] = charArr[rt];
+                charArr[rt] = temp;
 
                 isLeftAlphabet = false;
                 isRightAlphabet = false;
-                rc--;
-                lc++;
+                rt--;
+                lt++;
             } else if (isLeftAlphabet){
-                rc--;
+                rt--;
             } else {
-                lc++;
+                lt++;
             }
         }
         answer = String.valueOf(charArr);
