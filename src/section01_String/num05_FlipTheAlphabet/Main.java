@@ -53,4 +53,32 @@ public class Main {
         answer = String.valueOf(charArr);
         return answer;
     }
+
+    //isAlphabetic 활용
+    private String solution2(String strArr){
+        String answer;
+
+        char[] charArr = strArr.toCharArray();
+
+        int lt = 0;
+        int rt = charArr.length-1;
+
+        while(lt < rt){
+
+            if(!Character.isAlphabetic(charArr[lt])){
+                lt++;
+            } else if(!Character.isAlphabetic(charArr[rt])){
+                rt--;
+            } else {
+                char temp = charArr[lt];
+                charArr[lt] = charArr[rt];
+                charArr[rt] = temp;
+
+                lt++;
+                rt--;
+            }
+        }
+        answer = String.valueOf(charArr);
+        return answer;
+    }
 }
