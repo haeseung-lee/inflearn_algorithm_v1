@@ -23,4 +23,15 @@ public class Main {
         }
         return answer.toString();
     }
+
+    private String solution2(String str){
+        StringBuilder answer = new StringBuilder();
+
+        for(int i=0; i < str.length(); i++){
+            if(str.indexOf(str.charAt(i)) == i){
+                answer.append(str.charAt(i));
+            }
+        }
+        return answer.toString();
+    }
 }
