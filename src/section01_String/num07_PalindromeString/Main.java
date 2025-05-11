@@ -13,31 +13,39 @@ public class Main {
     }
 
     private String solution(String str){
-        String answer = "YES";
 
         int lt = 0;
         int rt = str.length()-1;
+        str = str.toLowerCase();
 
         while(lt < rt){
-            if(Character.toLowerCase(str.charAt(lt)) != Character.toLowerCase(str.charAt(rt))){
-                answer = "NO";
-                break;
+            if(str.charAt(lt) != str.charAt(rt)){
+                return "NO";
             } else {
                 lt++;
                 rt--;
             }
         }
-        return answer;
+        return "YES";
     }
 
     private String solution2(String str){
-        String answer = "NO";
-        StringBuilder sb = new StringBuilder(str);
-        StringBuilder reverseSb = new StringBuilder(str).reverse();
+        String reverseSb = new StringBuilder(str).reverse().toString();
 
-        if(sb.toString().equalsIgnoreCase(reverseSb.toString())){
-            answer = "YES";
+        if(str.equalsIgnoreCase(reverseSb)){
+            return  "YES";
         }
-        return answer;
+        return "NO";
+    }
+
+    private String solution3(String str){
+        int len = str.length();
+        str = str.toUpperCase();
+        for(int i=0; i < len/2; i++){
+            if(str.charAt(i) != str.charAt(len-i-1)){
+                return "NO";
+            }
+        }
+        return "YES";
     }
 }
