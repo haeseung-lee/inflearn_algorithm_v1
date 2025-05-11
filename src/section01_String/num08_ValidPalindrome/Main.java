@@ -35,4 +35,15 @@ public class Main {
         }
         return "YES";
     }
+
+    private String solution2(String str){
+        str = str.toLowerCase().replaceAll("[^a-z]","");
+        String reversStr = new StringBuilder(str).reverse().toString();
+
+        if(str.equals(reversStr)){
+            return "YES";
+        } else {
+            return "NO";
+        }
+    }
 }
