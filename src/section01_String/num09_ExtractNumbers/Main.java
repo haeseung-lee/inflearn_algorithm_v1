@@ -13,14 +13,12 @@ public class Main {
     }
 
     private int solution(String str){
-
         str = str.replaceAll("[^0-9]", "");
         return Integer.parseInt(str);
     }
 
     //0~9 : x >= 48 && x<=57
     private int solution2(String str){
-
         int answer = 0;
 
         for(char c : str.toCharArray()){
@@ -29,5 +27,16 @@ public class Main {
             }
         }
         return answer;
+    }
+
+    private int solution3(String str){
+        StringBuilder sb = new StringBuilder();
+
+        for(char c : str.toCharArray()){
+            if(Character.isDigit(c)){
+                sb.append(c);
+            }
+        }
+        return Integer.parseInt(sb.toString());
     }
 }
