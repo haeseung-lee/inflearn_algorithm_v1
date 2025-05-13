@@ -12,7 +12,7 @@ public class Main {
         String str = in.nextLine();
 
         Main m = new Main();
-        m.solution(str);
+        m.solution2(str);
     }
 
     private void solution(String str){
@@ -47,6 +47,39 @@ public class Main {
                 int tmp1 = i - tIdxList.get(lt);
                 int tmp2 = tIdxList.get(rt) - i;
                 answer[i] = Math.min(tmp1, tmp2);
+            }
+        }
+
+        for(int i : answer){
+            System.out.print(i + " ");
+        }
+    }
+
+    private void solution2(String str){
+        String[] strArr = str.split(" ");
+        String s = strArr[0];
+        char t = strArr[1].charAt(0);
+
+        int p = 1000;
+        //왼쪽부터의 거리
+        int[] answer = new int[s.length()];
+        for(int i = 0; i < answer.length; i++){
+            if(s.charAt(i) == t){
+                p = 0;
+            } else {
+                p++;
+            }
+            answer[i] = p;
+        }
+
+        p = 1000;
+        //오른쪽부터의 거리
+        for(int i = answer.length-1; i >= 0; i--){
+            if(s.charAt(i) == t){
+                p = 0;
+            } else {
+                p++;
+                answer[i] = Math.min(answer[i], p);
             }
         }
 
