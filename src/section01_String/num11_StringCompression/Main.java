@@ -31,4 +31,23 @@ public class Main {
         return answer.toString().replace("0", "")
                 .replace("1","");
     }
+
+    private String solution2(String str){
+        StringBuilder answer = new StringBuilder();
+        str += " ";
+        int count = 1;
+
+        for(int i = 0; i < str.length()-1; i++){
+            if(str.charAt(i) == str.charAt(i+1)){
+                count++;
+            } else {
+                answer.append(str.charAt(i));
+                if(count > 1){
+                    answer.append(count);
+                }
+                count = 1;
+            }
+        }
+        return answer.toString();
+    }
 }
