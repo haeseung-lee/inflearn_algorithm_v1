@@ -29,4 +29,19 @@ public class Main {
         }
         return answer.toString();
     }
+
+    private String solution2(int count, String str){
+        StringBuilder answer = new StringBuilder();
+
+        for(int i = 0; i < count; i++){
+            String temp = str.substring(0,7)
+                            .replace("#","1")
+                            .replace("*","0");
+
+            int n = Integer.parseInt(temp,2);
+            answer.append((char) n);
+            str = str.substring(7);
+        }
+        return answer.toString();
+    }
 }
