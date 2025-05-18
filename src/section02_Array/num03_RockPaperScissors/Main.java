@@ -18,7 +18,7 @@ public class Main {
         }
 
         Main m = new Main();
-        for(String s : m.solution(n, arrA, arrB)){
+        for(String s : m.solution2(n, arrA, arrB)){
             System.out.println(s);
         }
     }
@@ -39,6 +39,24 @@ public class Main {
                 answer[i] = "B";
             } else {
                 answer[i] = "D";
+            }
+        }
+        return answer;
+    }
+    //A의 승리 기준으로
+    private String[] solution2(int n, int[] arrA, int[] arrB) {
+        String[] answer = new String[n];
+        for (int i = 0; i < n; i++) {
+            if (arrA[i] == arrB[i]) {
+                answer[i] = "D";
+            } else if (arrA[i] == 1 && arrB[i] == 3) {
+                answer[i] = "A";
+            } else if (arrA[i] == 2 && arrB[i] == 1) {
+                answer[i] = "A";
+            } else if (arrA[i] == 3 && arrB[i] == 2) {
+                answer[i] = "A";
+            } else {
+                answer[i] = "B";
             }
         }
         return answer;
