@@ -24,4 +24,18 @@ public class Main {
         }
         return answer;
     }
+
+    private void solution2(int n){
+        int a = 1;
+        int b = 1;
+        int c;
+        System.out.print(a + " " + b + " ");
+
+        for(int i = 2; i < n; i++){
+            c = a+b;
+            System.out.print(c + " ");
+            a = b;
+            b = c;
+        }
+    }
 }
