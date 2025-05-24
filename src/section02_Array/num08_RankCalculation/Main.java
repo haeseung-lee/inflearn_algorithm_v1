@@ -14,7 +14,8 @@ public class Main {
         }
 
         Main m = new Main();
-        m.solution(n, arr);
+//        m.solution(n, arr);
+        m.solution2(n, arr);
     }
 
     private void solution(int n, List<Integer> arr) {
@@ -28,6 +29,23 @@ public class Main {
             answer[i] = sortArr.indexOf(arr.get(i)) + 1;
         }
 
+        for(int x : answer){
+            System.out.print(x + " ");
+        }
+    }
+
+    private void solution2(int n, List<Integer> arr){
+        int[] answer = new int[n];
+
+        for(int i=0; i<arr.size(); i++){
+            int cnt = 1;
+            for (Integer integer : arr) {
+                if (integer > arr.get(i)) {
+                    cnt++;
+                }
+            }
+            answer[i] = cnt;
+        }
         for(int x : answer){
             System.out.print(x + " ");
         }
