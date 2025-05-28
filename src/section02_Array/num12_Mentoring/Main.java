@@ -3,7 +3,7 @@ package section02_Array.num12_Mentoring;
 import java.util.Scanner;
 
 public class Main {
-    //멘토 멘티 구하기
+    //멘토 멘티 구하기.
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
         int n = in.nextInt();
