@@ -14,8 +14,9 @@ public class Main {
 
     private int solution(int n) {
         int answer = 0;
-        int[] arr = new int[n-1];
-        for(int i = 0; i < arr.length; i++){//연속된 자연수의 합으로 n은 제외
+//        int[] arr = new int[n-1];//연속된 자연수의 합으로 n은 제외
+        int[] arr = new int[n/2 + 1];//연속된 자연수의 합이므로 n을 2로 나눈 몫의 +1 까지만 필요
+        for(int i = 0; i < arr.length; i++){
             arr[i] = i+1;
         }
 
