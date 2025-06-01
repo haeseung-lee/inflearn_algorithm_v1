@@ -1,4 +1,4 @@
-package section03_TwoPointerAndSlidingWindow.section04_Subarray;
+package section03_TwoPointerAndSlidingWindow.num04_Subarray;
 
 import java.util.Scanner;
 
