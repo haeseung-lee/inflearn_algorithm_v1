@@ -45,4 +45,25 @@ public class Main {
         }
         return answer;
     }
+
+    private int solution2(int n, int m, int[] arr){
+        int answer = 0;
+        int sum =0;
+        int p1 = 0;
+        for(int p2 = 0; p2 < n; p2++){
+            //오른쪽 더하기
+            sum += arr[p2];
+            if(sum == m){
+                answer++;
+            }
+            //합이크면 왼쪽을 빼면서 합이 같아지는 경우를 찾기
+            while(sum >=m){
+                sum -= arr[p1++];
+                if(sum == m){
+                    answer++;
+                }
+            }
+        }
+        return answer;
+    }
 }
