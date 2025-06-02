@@ -3,13 +3,14 @@ package section03_TwoPointerAndSlidingWindow.num05_SumOfConsecutiveNaturalNumber
 import java.util.Scanner;
 
 public class Main {
-    //자연수 n 이 주어졌을 때, 연속된 즈연수의 합이 n이 되는 가짓수
+    //자연수 n 이 주어졌을 때, 연속된 자연수의 합이 n이 되는 가짓수
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         
         Main main = new Main();
-        System.out.println(main.solution(n));
+//        System.out.println(main.solution(n));
+        System.out.println(main.solution2(n));
     }
 
     private int solution(int n) {
@@ -36,6 +37,24 @@ public class Main {
             }
         }
 
+        return answer;
+    }
+
+    /*
+    * n에서 연속된 자연수(cnt)의 합을 뺀 후
+    * cnt로 나눴을 떄의 몫이 0이면 연속된 자연수의 합이 n임을 활용
+    * */
+    private int solution2(int n){
+        int answer = 0;
+        int cnt = 1;//연속된 자연수의 수
+        n -= cnt;
+        while(n > 0){
+            cnt++;
+            n -= cnt;
+            if(n % cnt == 0){
+                answer++;
+            }
+        }
         return answer;
     }
 }
