@@ -18,6 +18,7 @@ public class Main {
         }
         Main main = new Main();
         System.out.println(main.solution(n, k, arr));
+        System.out.println(main.solution2(n, k, arr));
     }
 
     private int solution(int n, int k, int[] arr) {
@@ -39,6 +40,27 @@ public class Main {
             int len = zeroList.get(i)- start;
             answer = Math.max(answer, len);
             start = zeroList.get(i-k)+1;
+        }
+        return answer;
+    }
+
+    //two pointer
+    private int solution2(int n, int k, int[] arr){
+        int answer = 0;
+        int cnt = 0;
+        int lt = 0;
+
+        for(int rt = 0; rt < n; rt++){
+            if(arr[rt] == 0){
+                cnt++;
+            }
+            while(cnt > k){
+                if(arr[lt] == 0){
+                    cnt--;
+                }
+                lt++;
+            }
+            answer = Math.max(answer, rt-lt+1);
         }
         return answer;
     }
