@@ -54,4 +54,21 @@ public class Main {
         }
         return "E";
     }
+
+    private char solution2(int n, char[] arr){
+        char answer = ' ';
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        for(char c : arr){
+            map.put(c, map.getOrDefault(c,0)+1);
+        }
+        int max = 0;
+        for(char key : map.keySet()){
+            if(map.get(key) > max){
+                max = map.get(key);
+                answer = key;
+            }
+        }
+        return answer;
+    }
 }
