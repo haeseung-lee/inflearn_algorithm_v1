@@ -22,19 +22,18 @@ public class Main {
         for(char x : t.toCharArray()){
             tMap.put(x, tMap.getOrDefault(x, 0) + 1);
         }
-        char[] arr = s.toCharArray();
         for(int i = 0; i < t.length()-1; i++){
-            sMap.put(arr[i], sMap.getOrDefault(arr[i], 0) + 1);
+            sMap.put(s.charAt(i), sMap.getOrDefault(s.charAt(i), 0) + 1);
         }
         int lt = 0;
         for(int rt = t.length()-1; rt < s.length(); rt++){
-            sMap.put(arr[rt], sMap.getOrDefault(arr[rt], 0) + 1);
+            sMap.put(s.charAt(rt), sMap.getOrDefault(s.charAt(rt), 0) + 1);
             if(sMap.equals(tMap)){
                 answer++;
             }
-            sMap.put(arr[lt], sMap.getOrDefault(arr[lt], 0) - 1);
-            if(sMap.get(arr[lt]) == 0){
-                sMap.remove(arr[lt]);
+            sMap.put(s.charAt(lt), sMap.getOrDefault(s.charAt(lt), 0) - 1);
+            if(sMap.get(s.charAt(lt)) == 0){
+                sMap.remove(s.charAt(lt));
             }
             lt++;
         }
