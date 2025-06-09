@@ -14,21 +14,15 @@ public class Main {
     private String solution(String s) {
         String answer = "YES";
 
-        if(s.length()%2 != 0){
-            return "NO";
-        }
-
         Stack<Character> stack = new Stack<>();
-
-        stack.push(s.charAt(0));
-        for(int i = 1; i < s.length(); i++){
-            if(s.charAt(i) == ')'){
+        for(char x : s.toCharArray()){
+            if(x == '('){
+                stack.push(x);
+            } else {
                 if(stack.isEmpty()){
                     return "NO";
                 }
                 stack.pop();
-            } else {
-                stack.push(s.charAt(i));
             }
         }
         if(!stack.isEmpty()){
