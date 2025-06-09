@@ -19,7 +19,8 @@ public class Main {
         }
         
         Main main = new Main();
-        System.out.println(main.solution(n, k, arr));
+//        System.out.println(main.solution(n, k, arr));
+        System.out.println(main.solution2(n, k, arr));
     }
 
     private int solution(int n, int k, int[] arr) {
@@ -40,5 +41,26 @@ public class Main {
         list.sort(Collections.reverseOrder());
 
         return list.get(k-1);
+    }
+    private int solution2(int n, int k, int[] arr){
+        int answer = -1;
+        TreeSet<Integer> treeSet = new TreeSet<>(Collections.reverseOrder());
+        for(int i = 0; i < n; i++){
+            for(int j = i+1; j < n; j++){
+                for(int l = j+1; l < n; l++){
+                    //for 문 3개 다 n 까지로 조건을 해도
+                    //숫자가 커지면 조건이 false 가 되어 이중, 삼중 for 문 실행 안됨
+                    treeSet.add(arr[i] + arr[j] + arr[l]);
+                }
+            }
+        }
+        int cnt = 0;
+        for(int x : treeSet){
+            cnt++;
+            if(cnt == k){
+                return x;
+            }
+        }
+        return answer;
     }
 }
