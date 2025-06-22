@@ -29,5 +29,15 @@ public class Main {
         }
     }
 
-
+    private String solution2(int n, int[] arr){
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i < n; i++){
+            if(map.get(arr[i]) != null){
+                return "D";
+            } else {
+                map.put(arr[i], 1);
+            }
+        }
+        return "U";
+    }
 }
