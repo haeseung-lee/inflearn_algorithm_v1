@@ -1,5 +1,6 @@
 package section06_SortingAndSearching.num05_DuplicateCheck;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -39,5 +40,16 @@ public class Main {
             }
         }
         return "U";
+    }
+
+    private String solution3(int n, int[] arr){
+        String answer ="U";
+        Arrays.sort(arr);
+        for(int i = 0; i < n-1; i++){
+            if(arr[i] == arr[i+1]){
+                return "D";
+            }
+        }
+        return answer;
     }
 }
