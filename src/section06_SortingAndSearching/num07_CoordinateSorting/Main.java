@@ -1,5 +1,7 @@
 package section06_SortingAndSearching.num07_CoordinateSorting;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -10,17 +12,28 @@ public class Main {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
         int n = in.nextInt();
-        int[][] arr = new int[n][2];
+        ArrayList<Point> list = new ArrayList<>();
         for(int i = 0; i < n; i++){
-            for(int j = 0; j < arr[i].length; j++){
-                arr[i][j] = in.nextInt();
-            }
+            int x = in.nextInt();
+            int y = in.nextInt();
+            list.add(new Point(x, y));
         }
-        Main main = new Main();
-        arr = main.solution(n, arr);
-        for(int i = 0; i < n; i++){
-            System.out.println(arr[i][0] + " " + arr[i][1]);
+
+        Collections.sort(list);
+        for(Point o : list){
+            System.out.println(o.x + " " + o.y);
         }
+//        int[][] arr = new int[n][2];
+//        for(int i = 0; i < n; i++){
+//            for(int j = 0; j < arr[i].length; j++){
+//                arr[i][j] = in.nextInt();
+//            }
+//        }
+//        Main main = new Main();
+//        arr = main.solution(n, arr);
+//        for(int i = 0; i < n; i++){
+//            System.out.println(arr[i][0] + " " + arr[i][1]);
+//        }
 
     }
 
@@ -48,5 +61,23 @@ public class Main {
             }
         }
         return arr;
+    }
+}
+
+class Point implements Comparable<Point>{
+    public int x;
+    public int y;
+    Point(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public int compareTo(Point o) {
+        if(this.x == o.x) {
+            return this.y - o.y;
+        } else {
+            return this.x - o.x;
+        }
     }
 }
