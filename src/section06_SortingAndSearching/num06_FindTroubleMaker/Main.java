@@ -1,6 +1,7 @@
 package section06_SortingAndSearching.num06_FindTroubleMaker;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -12,15 +13,35 @@ public class Main {
     * */
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        int n = in.nextInt();
-        ArrayList<Integer> list = new ArrayList<>();
-        for(int i = 0; i < n; i++){
-            list.add(in.nextInt());
-        }
         Main main = new Main();
-        for(int x : main.solution(n, list)){
+        int n = in.nextInt();
+//        ArrayList<Integer> list = new ArrayList<>();
+//        for(int i = 0; i < n; i++){
+//            list.add(in.nextInt());
+//        }
+//        for(int x : main.solution(n, list)){
+//            System.out.print(x + " ");
+//        }
+        int[] arr = new int[n];
+        for(int i = 0; i < n; i++){
+            arr[i] = in.nextInt();
+        }
+        for(int x : main.solution2(arr, n)){
             System.out.print(x + " ");
         }
+    }
+
+    private ArrayList<Integer> solution2(int[] arr, int n) {
+        ArrayList<Integer> answer = new ArrayList<>();
+
+        int[] tmp = arr.clone();
+        Arrays.sort(tmp);
+        for(int i = 0; i < n; i ++){
+            if(arr[i] != tmp[i]){
+                answer.add(i+1);
+            }
+        }
+        return answer;
     }
 
     private int[] solution(int n, ArrayList<Integer> list) {
