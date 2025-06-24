@@ -13,7 +13,7 @@ public class Main {
             arr[i] = in.nextInt();
         }
         Main main = new Main();
-        System.out.println(main.solution(n, m, arr));
+        System.out.println(main.solution2(n, m, arr));
     }
 
     private int solution(int n, int m, int[] arr) {
@@ -34,4 +34,24 @@ public class Main {
         answer = mid + 1;
         return answer;
     }
+
+    private int solution2(int n, int m, int[] arr){
+        int answer = 0;
+        Arrays.sort(arr);
+        int lt = 0;
+        int rt = n-1;
+        while(lt <= rt){
+            int mid = (lt + rt)/2;
+            if(arr[mid] == m){
+                answer = mid + 1;
+                break;
+            }
+            if(arr[mid] > m){
+                rt = mid - 1;
+            } else {
+                lt = mid + 1;
+            }
+        }
+        return answer;
+    };
 }
